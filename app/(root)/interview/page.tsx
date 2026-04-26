@@ -1,4 +1,4 @@
-import Agent from "@/components/Agent";
+import InterviewGenerateForm from "@/components/InterviewGenerateForm";
 import { getCurrentUser } from "@/lib/actions/auth.action";
 
 const Page = async () => {
@@ -6,14 +6,13 @@ const Page = async () => {
 
   return (
     <>
-      <h3>Interview generation</h3>
+      <h3>Generate a New Interview</h3>
+      <p className="text-light-100">
+        Fill in the details below and Gemini will generate a tailored set of
+        interview questions for you.
+      </p>
 
-      <Agent
-        userName={user?.name!}
-        userId={user?.id}
-        profileImage={user?.profileURL}
-        type="generate"
-      />
+      <InterviewGenerateForm userId={user?.id ?? ""} />
     </>
   );
 };
